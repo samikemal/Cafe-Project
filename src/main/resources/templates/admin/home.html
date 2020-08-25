@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</head>
+<style type="text/css">
+
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1f4037;
+    }
+
+    :root {
+        font-size: 10px;
+    }
+
+    nav ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    nav li {
+        width: 20rem;
+        height: 7rem;
+        font-size: 20px;
+        text-align: center;
+        line-height: 7rem;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        transition: 0.3s;
+        margin: 3rem;
+    }
+
+    nav li::before,
+    nav li::after {
+        content: '';
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 0;
+        left: 0;
+        transition: 0.3s;
+    }
+
+    nav li::before {
+        background-color: white;
+        z-index: -1;
+        box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+
+    nav li::after {
+        background-color: goldenrod;
+        transform: translate(1.5rem, 1.5rem);
+        z-index: -2;
+    }
+
+    nav li:hover {
+        transform: translate(1.5rem, 1.5rem);
+        color: white;
+    }
+
+    nav li:hover::before {
+        background-color: goldenrod;
+    }
+
+    nav li:hover::after {
+        background-color: white;
+        transform: translate(-1.5rem, -1.5rem);
+    }
+
+</style>
+
+<form th:action="@{/logout}" method="get">
+    <button class="btn btn-md btn-danger btn-block" name="registration"
+            type="Submit">Logout</button>
+</form>
+
+<body>
+
+<div>
+<nav>
+    <ul>
+        <a href="/admin/user/list">
+        <li>User List</li>
+        </a>
+        <a href="/admin/category/form">
+        <li>Category Form</li>
+        </a>
+        <a href="/admin/category/list">
+        <li>Category List</li>
+        </a>
+        <a href="/admin/product/add">
+        <li>Add Product</li>
+        </a>
+        <a href="/admin/orderss">
+            <li>Check Orders</li>
+        </a>
+    </ul>
+</nav>
+</div>
+</body>
+</html>
+
+
+
+
+

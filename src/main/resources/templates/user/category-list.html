@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<style>
+
+</style>
+<body bgcolor="#d2691e">
+
+<div class="container">
+    <div>
+        <h3>Category List</h3>
+        <table class="table table-stripped">
+
+                <th>&emsp;Category</th>
+
+            <tr th:each="categor : ${category1}">
+                <td th:text="${categor.id}"></td>
+                <td th:text="${categor.category}"></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

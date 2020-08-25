@@ -1,0 +1,52 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/css/category-list.css}" />
+<style>
+    .renk {
+        background-color: #1f4037;
+    }
+    .kaydirma{
+        margin-left: 325px;
+    }
+</style>
+<a href="/admin/home">
+    <button class="btn btn-md btn-danger btn-block" type="Submit"> Back to Home</button>
+</a>
+<body class="renk">
+<div class="span7">
+    <div class="widget stacked widget-table action-table">
+        <div th:if="${not #lists.isEmpty(user)}">
+
+            <div class="widget-header">
+                <center><h3 style="margin-left: 190px; color: #9bc5c3">User List</h3></center>
+            </div>
+            <div class="widget-content">
+                <table class="table table-striped table-bordered kaydirma">
+                    <thead>
+                    <tr style="color:seagreen">
+                        <th>Id &nbsp;</th>
+                        <th>First Name &nbsp;</th>
+                        <th>Last Name &nbsp;</th>
+                    </tr>
+                    <tr style="color: white" th:each="u : ${user}">
+                        <td th:text="${u.id}"></td>
+                        <td th:text="${u.firstName}"></td>
+                        <td th:text="${u.lastName}"></td>
+                        <!---->
+                       <!--&lt;!&ndash; <a class="btn btn-danger" href="${pageContext.request.contextPath}/admin/user/deleteUser?id=${u.id}">Delete</a>&ndash;&gt;-->
+                        <!--<td> <a class="btn btn-info" th:href="@{/admin/user/doEdit/{id}(id=${u.id})}">Edit</a> </td>-->
+                        <!--<td> <a class="btn btn-danger" th:href="@{/admin/user/deleteUser/{id}(id=${u.id})}">Delete</a> </td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+

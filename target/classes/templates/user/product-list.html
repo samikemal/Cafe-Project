@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body bgcolor="#90ee90">
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+
+        <form action="/user/sort" style="display: none;" method="post">
+            <input type="hidden" id="abc" name="abc" value="">
+        </form>
+
+        <select class="productCategory" name="productCategory" th:value="${selectedProduct}" >
+            <option value="0">All</option>
+            <option th:selected="${selectedProduct == tempCategory.id ? true: false }" th:value="${tempCategory.id}"
+                    th:each="tempCategory:${categories}" th:utext="${tempCategory.category}">
+            </option>
+            </th:each>
+        </select>
+
+
+        <table class="table table-stripped custab">
+            <thead>
+            <tr>
+                <th>Id &emsp;</th>
+                <th>Product Name &emsp;</th>
+                <th>Product Price &emsp;</th>
+                <th>Category ID &emsp;</th>
+                <th>Category Name &emsp;</th>
+
+            </tr>
+            </thead>
+
+            <tr th:each="product : ${product}"><!--buraya yönlendiriğimiz model nesnesinden user ı
+                 alıyor ve içindekileri atıyor her turda bir satır olarak -->
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.productName}"></td>
+                <td th:text="${product.productPrice} + TL"></td>
+                <td th:text="${product.productCategory}"</td>
+                <td th:text="${product.productCategoryName}"></td>
+
+            </tr>
+
+        </table>
+    </div>
+    <a href="/user/home">Back to Home</a>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    $(".productCategory").change(function (e) {
+        alert($(this).val());
+        $("#abc").val($(this).val());
+        $("#abc").closest("form").submit();
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Edit</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body style="background-color: darkgray">
+
+<div class="row col-md-6 col-md-offset-2 custyle">
+    <center>
+    <a href="/admin/home">
+        <button class="btn btn-md btn-warning btn-block" type="Submit">Back to Home</button>
+    </a>
+    </center>
+</div>
+
+<form method="post" action="/admin/user/editSave" th:object="${users}">
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-wrap">
+                        <center>
+                            <h1>Edit</h1>
+                        </center>
+                        <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Id</label>
+                                <input type="hidden" name="id"  class="form-control" value="${users.id}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="sr-only">FirstName</label>
+                                <input type="text" name="firstname" id="email" class="form-control" value="${users.firstName}">
+                            </div>
+                            <div class="form-group">
+                                <label for="key" class="sr-only">LastName</label>
+                                <input type="text" name="lastname" id="key" class="form-control" value="${users.lastName}">
+                            </div>
+
+                            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit"/>
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

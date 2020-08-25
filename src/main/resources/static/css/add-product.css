@@ -1,0 +1,42 @@
+.body-bg{
+    background-image: url(/images/);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:90%;
+    height:90vh;
+    overflow:auto;
+}
+
+p{
+    color: white;
+    font-size: x-large;
+
+}
+div.form-div{
+
+    margin-left: 25%;
+    margin-top: 10%;
+
+}
+input[type=text]{
+
+    width: 200px;
+    padding: 10px 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+option.category{
+    margin-left: 50px;
+}
+select#category{
+    margin-left: 158px;
+}
+input.kaydirma{
+    margin-left: 186px;
+}
+input[type=submit]{
+
+    margin-top: -10px;
+    width: 100px;
+    height: 50px;
+}

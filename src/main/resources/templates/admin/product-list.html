@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body bgcolor="#90ee90">
+<div class="container">
+    <div th:if="${not #lists.isEmpty(urunler)}">
+        <h3>Product List</h3>
+        <table class="table table-stripped">
+
+            <tr>
+                <th>Product Category &emsp;</th>
+
+                <th>Product Name &emsp;</th>
+                <th>Product Price &emsp;</th>
+            </tr>
+
+            <tr th:each="urun : ${urunler}">
+                <td th:text="${urun.productCategory}"></td>
+
+                <td th:text="${urun.productName}"></td>
+                <td th:text="${urun.productPrice}"></td>
+
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>

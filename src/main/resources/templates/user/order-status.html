@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .back {
+       background-color: #1f4037;
+    }
+
+</style>
+
+<body class="back">
+<div class="container">
+    <a href="/user/home">
+        <button class="btn btn-md btn-warning btn-block" type="Submit"> Back to Home</button>
+    </a>
+
+    <div class="row col-md-6 col-md-offset-2 custyle">
+
+        <table class="table table-striped custab">
+            <thead>
+
+            <tr style="color:deepskyblue">
+                <th>Product Name</th>
+                <th>Order Status</th>
+                <th>Ordering Time</th>
+                <th>Shipping Time</th>
+                <th>Completed</th>
+            </tr>
+            </thead>
+            <tr style="color: deepskyblue" th:each="order: ${orders}">
+                <td th:text="${order.productName}"></td>
+                <td th:text="${order.status}"></td>
+                <td th:text="${#dates.format(order.startTime, 'dd-MM-yyyy HH:mm:ss')}"></td>
+                <td th:text="${#dates.format(order.updateTime, 'dd-MM-yyyy HH:mm:ss')}"></td>
+                <td><a class="btn btn-danger" th:href="@{/user/orders/completeOrder/{id}(id=${order.id})}"><span th:text="Completed"></span></a>
+            </tr>
+
+        </table>
+    </div>
+</div>
+</body>

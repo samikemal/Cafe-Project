@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+    .back {
+       background-color: #1f4037;
+    }
+</style>
+<body class="back">
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <a href="/admin/home">
+            <button class="btn btn-md btn-warning btn-block" type="Submit"> Back to Home</button>
+        </a>
+
+        <table class="table table-striped custab">
+            <thead>
+            <tr style="color: white">
+                <th>User ID</th>
+                <!--<th>User Name</th>-->
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Order Status</th>
+                <th>Ordering Time</th>
+                <th>Shipping Time</th>
+                <th>Ready</th>
+                <th>Finish</th>
+
+            </tr>
+            </thead>
+            <th:block th:each="orderStat: ${orders}">
+                <form id="orderStatus" role="form" action="/admin/orders/makeReady/orderss.html" method="post">
+                    <tr>
+                        <td th:text="${orderStat.userID}"></td>
+                        <!--<td th:text="${orderStat.firstName}"></td>-->
+                        <td th:text="${orderStat.id}"></td>
+                        <td th:text="${orderStat.productName}"></td>
+                        <td th:text="${orderStat.status}"></td>
+                        <td th:text="${#dates.format(orderStat.startTime, 'dd-MM-yyyy HH:mm:ss')}"></td>
+                        <td th:text="${#dates.format(orderStat.updateTime, 'dd-MM-yyyy HH:mm:ss')}"></td>
+                        <td><a class="btn btn-info" th:href="@{/admin/orders/makeReady/{id}(id=${orderStat.id})}"><span th:text="Update"></span></a>
+                        <td><a class="btn btn-danger" th:href="@{/admin/orders/deleteOrder/{id}(id=${orderStat.id})}"><span th:text="Finish"></span></a>
+                        </td>
+                    </tr>
+                </form>
+            </th:block>
+        </table>
+        </form>
+
+    </div>
+</div>
+</body>
+<!--margin-left: 25.666667%;
+    margin-top: 3%;-->
